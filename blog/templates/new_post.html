@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block title %}New Post{% endblock %}
+
+{% block main_content %}
+        <div class="col-sm-12 blog-main">
+            <form method="POST" action="/new_post/">
+                <textarea id="post" name="post" rows="3" class="form-control"></textarea>
+
+                <div class="btn-group">
+                    <button class="btn btn-default" id="save" type="button">Save</button>
+                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"><span
+                            class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" id="publish">Publish</a></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+{% endblock %}
+
+{% block java_script%}
+{{ super() }}
+<script src="/static/js/tinymce/tinymce.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#save').click(function(){
+        $(this).closest('form').submit();
+    });
+
+    tinymce.init({
+        selector: "textarea",
+        content_css: "/static/css/bootstrap.min.css",
+        plugins: [
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste"
+        ],
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    });
+});
+</script>
+{% endblock %}
+</body>
+</html>

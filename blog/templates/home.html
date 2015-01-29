@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block main_content %}
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.published_on}}</p>
+        {{ post.content | safe}}
+    {% else %}
+        <p>No entries yet!</p>
+    {% endfor %}
+{% endblock %}
