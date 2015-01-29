@@ -4,6 +4,6 @@ class AppConfig(object):
     TESTING = False
     DOMAIN = "appspot.com"
     BLOG_SUBDOMAIN = "blog.shout-jabe"
-    SECRET_KEY = "R1FjadO8uk"
-    CSRF_SECRET_KEY = "Ed32p3v71x"
+    SECRET_KEY = ""
+    CSRF_SECRET_KEY = ""
     CSRF_ENABLED = True
